@@ -17,8 +17,8 @@ class TaxCalculatorTest {
 	@Test
 	void addRoundedBigDecimalTest() {
 		calculator = new TaxCalculator();
-		assertEquals(new BigDecimal("1.10"), calculator.addRoundedBigDecimal(new BigDecimal("1.03"), new BigDecimal("0.05")));
-		assertEquals(new BigDecimal("1.05"), calculator.addRoundedBigDecimal(new BigDecimal("1.051"), new BigDecimal("0.02")));
+		assertEquals(new BigDecimal("1.08"), calculator.addRoundedBigDecimal(new BigDecimal("1.03"), new BigDecimal("0.05")));
+		assertEquals(new BigDecimal("1.07"), calculator.addRoundedBigDecimal(new BigDecimal("1.051"), new BigDecimal("0.02")));
 		assertEquals(new BigDecimal("1.05"), calculator.addRoundedBigDecimal(new BigDecimal("1.05"), new BigDecimal("0.00")));
 		assertEquals(new BigDecimal("0.00"), calculator.addRoundedBigDecimal(new BigDecimal("0"), new BigDecimal("0.00")));
 	}

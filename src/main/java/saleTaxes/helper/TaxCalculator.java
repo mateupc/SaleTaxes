@@ -45,6 +45,6 @@ public class TaxCalculator {
 	private static BigDecimal round(BigDecimal value, BigDecimal rounding,
             RoundingMode roundingMode) {
 		return rounding.signum()==0 ? value :
-	        (value.divide(rounding,0,roundingMode)).multiply(rounding);
+	        (value.divide(rounding,0,roundingMode)).multiply(rounding).setScale(2);
 	}
 }
