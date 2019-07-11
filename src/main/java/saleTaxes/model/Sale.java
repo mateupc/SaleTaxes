@@ -12,6 +12,8 @@ public class Sale {
 	
 	public Sale() {
 		this.orders = new ArrayList<ProductOrder>();
+		this.totalSale = BigDecimal.ZERO;
+		this.totalTaxes = BigDecimal.ZERO;
 	}
 	public List<ProductOrder> getOrders() {
 		return orders;

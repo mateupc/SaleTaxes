@@ -8,20 +8,15 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.regex.PatternSyntaxException;
 
-import org.junit.BeforeClass;
 import org.junit.jupiter.api.Test;
 
+import saleTaxes.exception.InvalidArgumentException;
 import saleTaxes.helper.ProductMapper;
 import saleTaxes.model.ProductOrder;
 
 class ProductMapperTest {
 	
 	ProductMapper mapper;
-	
-	@BeforeClass
-	public void setup() {
-		
-	}
 	
 	@Test
 	void getProducFromStringTestSuccess() {
@@ -30,6 +25,18 @@ class ProductMapperTest {
 		assertEquals("Not expected value",order.getAmount(), new BigInteger("1"));
 		assertEquals("Not expected value",order.getName().trim(), "book");
 		assertEquals("Not expected value",order.getPrice(), new BigDecimal("12.49"));
+	}
+	
+	
+	@Test
+	void getProducFromStringtestFailAmountSmallerThanOne() {
+		mapper = new ProductMapper();
+		try {
+			mapper.getProductFromString("0 book at 12.49");
+		} 
+		catch(InvalidArgumentException ex) {
+			assertThat(ex.getMessage(),containsString( "Amount needs to be bigger than zero"));
+		}
 	}
 	
 	@Test
