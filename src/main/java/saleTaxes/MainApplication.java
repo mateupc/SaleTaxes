@@ -21,7 +21,7 @@ public class MainApplication {
 		
 	}
 
-	private static void processSale(Sale sale, ProductMapper mapper, TaxCalculator calculator, List<String> words) {
+	public static void processSale(Sale sale, ProductMapper mapper, TaxCalculator calculator, List<String> words) {
 		words.forEach(word ->{
 			ProductOrder order = mapper.getProductFromString(word);
 			BigDecimal taxes = calculator.calculateTax(order);
