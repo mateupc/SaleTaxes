@@ -18,7 +18,8 @@ public class MainApplication {
 		TaxCalculator calculator = new TaxCalculator();
 		List<String> words = SystemInputReader.readWords(new Scanner(System.in));
 		words.forEach(word ->{
-			ProductOrder order = mapper.getProductFromString(word);		
+			ProductOrder order = mapper.getProductFromString(word);
+			BigDecimal taxes = 
 			sale.setTotalTaxes(sale.getTotalTaxes().add(calculator.calculateTax(order)));
 			sale.getOrders().add(order.set);
 		});
