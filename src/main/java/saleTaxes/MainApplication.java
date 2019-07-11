@@ -16,13 +16,13 @@ public class MainApplication {
 
 	public static void main(String[] args) { 
 		Sale sale = new Sale();
-		String filePath = "config/Input 1.txt";
+		String inputFilePath = "config/Input 1.txt";
 		String outFilePath = "config/Output 1.txt";
 		ProductMapper mapper = new ProductMapper();
 		TaxCalculator calculator = new TaxCalculator();
 		List<String> words;
 		try {
-			words = CustomReader.readLines(Paths.get(filePath));
+			words = CustomReader.readLines(Paths.get(inputFilePath));
 			processSale(sale, mapper, calculator, words);
 			CustomWriter.writeOutput(Paths.get(outFilePath),sale);
 		} catch (IOException e) {
